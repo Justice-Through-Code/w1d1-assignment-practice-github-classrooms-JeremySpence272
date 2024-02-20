@@ -4,6 +4,8 @@ def is_happy_hour(user_date, user_time):
     today = datetime.datetime.strptime(user_date, "%Y-%m-%d").date()
     user_time = datetime.datetime.strptime(user_time, "%H:%M").time()
 
+    print(today.month)
+
     if is_christmas(today):
         return False
     elif is_easter(today):
@@ -15,7 +17,6 @@ def is_happy_hour(user_date, user_time):
 
 def is_christmas(date):
     return (date.month == 12) and (date.day == 25)
-    
 
 def is_easter(date):
     return date == calc_easter_sunday(date.year)
@@ -43,6 +44,7 @@ def calc_easter_sunday(year):
 if __name__ == "__main__":
     user_date = input("Enter date (YYYY-MM-DD): ")
     user_time = input("Enter time (HH:MM): ")
+
 
     result = is_happy_hour(user_date, user_time)
     print("Is it happy hour?", result)
